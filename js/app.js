@@ -11,7 +11,7 @@ $.ajax({
         var events = data.results.events;
         for (var event in events) {
             if (event === '0') {
-                console.log('The first event is ' +
+                $('h2').append(
                     events[event].title.text +
                     ' on '  +
                     events[event].date +
@@ -19,9 +19,6 @@ $.ajax({
                     events[event].time +
                     '.\n'
                 );
-                console.log('=====================');
-                console.log('Other events include:\n');
-                console.log('=====================');
             } else if (JSON.parse(event) < 3) {
                 console.log(
                     events[event].title.text +
@@ -33,6 +30,7 @@ $.ajax({
                 );
             }
         }
+        $('.loader').hide();
     }
 });
 
